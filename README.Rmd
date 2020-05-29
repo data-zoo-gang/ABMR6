@@ -18,11 +18,12 @@ knitr::opts_chunk$set(
 
 The goal of this repository is to illustrate how to use R6 to perform individual-based simulations using R6 (https://github.com/r-lib/R6).
 
-After cloning this repos (note: this Repos is not a package), you can simply follow the steps described in "master.R" to run the simulation and then look around in the other files to see how this works (there are examples defined for each class that can really help!).
+After cloning this repos (note: this repos is not a package), you can simply follow the steps described in `master.R` to run the simulations. Then explore the other files to see how this works (there are examples defined for each class that can really help!).
 
 Here is a subset of such content:
 ```{r}
 library(R6)
+set.seed(123)
 example <- FALSE
 source("World.R")
 source("Butterfly.R")
@@ -33,4 +34,4 @@ simu$run()
 simu$plot()
 ```
 
-The example treated is akin to the well known peppered moth evolution story (https://en.wikipedia.org/wiki/Peppered_moth_evolution), but considering that the environment is in constant fluctuation. The grey line shows the colour of the environment (top os black and bottom is white) and the blue line shows the allele frequency for the gene coding the black colour in the moth (called butterfly in the files).
+The example treated here is inspired in part by the well known peppered moth evolution story (https://en.wikipedia.org/wiki/Peppered_moth_evolution). It considers that the environment is either black or white and that the colour switches regularly. The grey line on the plot shows the colour of the environment (top means black and bottom means white). The blue line shows how the allele frequency for the gene coding the black colour evolves through time. Evolution happens because of both drift and selection. The selection happens because I considered that moths (or butterflies in the files) have a lower fitness if they are not in an environment matching their colour (because, say, the predators spot them better).
