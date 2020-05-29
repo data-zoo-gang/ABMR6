@@ -1,0 +1,36 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# ABMR6
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of this repository is to illustrate how to use R6 to perform individual-based simulations using R6 (https://github.com/r-lib/R6).
+
+After cloning this repos (note: this Repos is not a package), you can simply follow the steps described in "master.R" to run the simulation and then look around in the other files to see how this works (there are examples defined for each class that can really help!).
+
+Here is a subset of such content:
+```{r}
+library(R6)
+example <- FALSE
+source("World.R")
+source("Butterfly.R")
+source("Population.R")
+source("Simulation.R")
+simu <- Simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
+simu$run()
+simu$plot()
+```
+
+The example treated is akin to the well known peppered moth evolution story (https://en.wikipedia.org/wiki/Peppered_moth_evolution), but considering that the environment is in constant fluctuation. The grey line shows the colour of the environment (top os black and bottom is white) and the blue line shows the allele frequency for the gene coding the black colour in the moth (called butterfly in the files).
