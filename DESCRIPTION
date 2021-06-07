@@ -1,0 +1,22 @@
+Package: ABMR6
+Title: Example of agent-based model using R6
+Version: 0.2.5
+Authors@R: 
+    c(person(given = "Liam",
+             family = "Bailey",
+             role = c("aut", "cre"),
+             email = "liam.bailey@liamdbailey.com"),
+      person(given = "Alexandre",
+             family = "Courtiol",
+             role = "aut"))
+Description: Simple example of an agent-based model using R6. Built as a package to show integration with `roxygen2` and `testthat`.
+Depends:
+    R (>= 3.5.0)
+License: GPL-2
+Encoding: UTF-8
+Imports:
+    R6
+Suggests:
+    withr,
+    testthat
+RoxygenNote: 7.1.1
