@@ -32,7 +32,6 @@ install_github("data-zoo-gang/ABMR6")
 After installing this package, you can simply follow the steps below to run the simulations.
 Then explore the R6 classes defined in this package to see how things work (`?simulation`, `?world`, `?population`, `?moth`).
 
-Here is a subset of such content:
 ```{r simu}
 library(ABMR6)
 set.seed(123)
