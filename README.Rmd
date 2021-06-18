@@ -40,4 +40,22 @@ simu$run()
 simu$plot()
 ```
 
+You can also run the following to explore the content of the objects in the middle of a simulation:
+```{r browsing, eval=FALSE}
+set.seed(123)
+simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
+simu$run(year_to_browse = 50)
+```
+
+Then, to explore the content of the running simulation in details, type:
+
+```{r browsing step by step, eval = FALSE}
+self ## to display the running instance of the class simulation
+self$world ## to display the running instance of the class world
+self$population ## to display the running instance of the class population
+self$population$individuals ## to display all agents of the simulation
+```
+
+## Coda
+
 The example treated here is inspired in part by the well known peppered moth evolution story (https://en.wikipedia.org/wiki/Peppered_moth_evolution). It considers that the environment is either black or white and that the colour switches regularly. The grey line on the plot shows the colour of the environment (top means black and bottom means white). The blue line shows how the allele frequency for the gene coding the black colour evolves through time. Evolution happens because of both drift and selection. The selection happens because I considered that moths (or butterflies in the files) have a lower fitness if they are not in an environment matching their colour (because, say, the predators spot them better).
