@@ -15,7 +15,7 @@ Authors@R:
 Description: Simple example of an agent-based model using R6. Built as a package to show integration with `roxygen2` and `testthat`.
 Depends:
     R (>= 3.5.0)
-License: GPL-2
+License: CC BY 4.0
 Encoding: UTF-8
 Imports:
     R6
