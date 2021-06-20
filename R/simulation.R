@@ -11,7 +11,16 @@
 #' @export
 #' @import R6
 #' @examples
-#' simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
+#' #Normal example where moths change colour with world
+#' set.seed(123)
+#' simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 10)
+#' simu$output
+#' simu$run()
+#' simu$plot()
+#' 
+#' #Example with low mutation rate that leads to fixation
+#' set.seed(681210)
+#' simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-4, period = 10)
 #' simu$output
 #' simu$run()
 #' simu$plot()
