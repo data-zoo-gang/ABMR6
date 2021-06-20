@@ -16,22 +16,46 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of this repository is to illustrate how to use R6 to perform individual-based simulations using R6 (https://github.com/r-lib/R6).
+The goal of this package is to illustrate how to use R6 to perform individual-based simulations using R6 (https://github.com/r-lib/R6).
 
-After cloning this repos (note: this repos is not a package), you can simply follow the steps described in `master.R` to run the simulations. Then explore the other files to see how this works (there are examples defined for each class that can really help!).
+## Installation
 
-Here is a subset of such content:
-```{r}
-library(R6)
+To install this package, simply run the following code:
+
+```{r, eval=FALSE}
+if (!require("remotes")) install.packages("remotes")
+install_github("data-zoo-gang/ABMR6")
+```
+
+## Usage
+
+After installing this package, you can simply follow the steps below to run the simulations.
+Then explore the R6 classes defined in this package to see how things work (`?simulation`, `?world`, `?population`, `?moth`).
+
+```{r simu}
+library(ABMR6)
 set.seed(123)
-example <- FALSE
-source("World.R")
-source("Butterfly.R")
-source("Population.R")
-source("Simulation.R")
-simu <- Simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
+simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
 simu$run()
 simu$plot()
 ```
+
+You can also run the following to explore the content of the objects in the middle of a simulation:
+```{r browsing, eval=FALSE}
+set.seed(123)
+simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
+simu$run(year_to_browse = 50)
+```
+
+Then, to explore the content of the running simulation in details, type:
+
+```{r browsing step by step, eval = FALSE}
+self ## to display the running instance of the class simulation
+self$world ## to display the running instance of the class world
+self$population ## to display the running instance of the class population
+self$population$individuals ## to display all agents of the simulation
+```
+
+## Coda
 
 The example treated here is inspired in part by the well known peppered moth evolution story (https://en.wikipedia.org/wiki/Peppered_moth_evolution). It considers that the environment is either black or white and that the colour switches regularly. The grey line on the plot shows the colour of the environment (top means black and bottom means white). The blue line shows how the allele frequency for the gene coding the black colour evolves through time. Evolution happens because of both drift and selection. The selection happens because I considered that moths (or butterflies in the files) have a lower fitness if they are not in an environment matching their colour (because, say, the predators spot them better).

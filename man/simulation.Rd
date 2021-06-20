@@ -8,7 +8,7 @@ R6 class representing a simulation of the peppered moth system.
 }
 \details{
 Used to generate a world with N peppered moth individuals that can be either black
-or white. Method `run()` can be used to simulate changes in moth colour over time
+or white. Method `run()` can be used to simulate the evolution of the moth colour over time
 as the colour of the world changes.
 }
 \examples{
@@ -71,9 +71,16 @@ An R6 object of class 'simulation'
 \subsection{Method \code{run()}}{
 Run simulation.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{simulation$run()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{simulation$run(year_to_browse = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{year_to_browse}}{Integer. The year at which the simulation should be paused to explore its content (or NULL, the default, not to interrupt the simulation).}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Details}{
 Simulation will run for a number of time steps defined by `years` attribute.
 }

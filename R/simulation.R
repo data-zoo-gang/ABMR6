@@ -5,7 +5,7 @@
 #' 
 #' @details
 #' Used to generate a world with N peppered moth individuals that can be either black
-#' or white. Method `run()` can be used to simulate changes in moth colour over time
+#' or white. Method `run()` can be used to simulate the evolution of the moth colour over time
 #' as the colour of the world changes.
 #' 
 #' @export
@@ -59,10 +59,14 @@ simulation <- R6Class(classname = "simulation",
     #' 
     #' @details
     #' Simulation will run for a number of time steps defined by `years` attribute.
-    run = function(){
+    #' 
+    #' @param year_to_browse Integer. The year at which the simulation should be paused to explore its content (or NULL, the default, not to interrupt the simulation).
+    #'
+    run = function(year_to_browse = NULL){
       time <- system.time({
         pb <- txtProgressBar(min = 1, max = self$years, style = 3)
         for (t in 1:self$years) {
+          if (!is.null(year_to_browse) && t == year_to_browse) browser()
           black <- unlist(lapply(self$population$individuals, function(ind) ind$colour))
           self$output$black_frequency[t] <- mean(black)
           self$output$world_dark[t] <- self$world$colour
