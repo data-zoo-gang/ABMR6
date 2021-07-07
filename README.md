@@ -1,8 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <center>
-
-<img src="./img/ABMR6G_logo.png" width="300" height="300">
+<h1 align="center">
+<img
+        width="300"
+        alt="ABMR6 logo"
+        src="https://github.com/data-zoo-gang/ABMR6/blob/new_methods/img/ABMR6_logo.png">
+</h1>
 
 ## Illustrating how to build agent-based modelling using [R6](https://github.com/r-lib/R6).
 
