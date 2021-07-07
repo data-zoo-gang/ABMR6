@@ -191,6 +191,27 @@ population <- R6Class(classname = "population",
       black <- unlist(lapply(self$individuals, function(ind) ind$colour))
       return(mean(black))
       
+    },
+    
+    #' @description
+    #' Calculate mean fitness of individuals in the population.
+    #' 
+    #' @details
+    #' Mean fitness can vary between 0.5, when all moths are mismatched,
+    #' or 1.0, when all moths match the world.
+    #' 
+    #' @examples
+    #' set.seed(456L)
+    #' my_world <- world$new()
+    #' my_pop   <- population$new(N = 500, world = my_world)
+    #' my_pop$computefitness()
+    #' 
+    #' my_pop$fetch_avg_fitness()
+    #' 
+    #' @return Proportion between 0 (all white) and 1 (all black)
+    fetch_avg_fitness = function(){
+      fitness <- unlist(lapply(self$individuals, function(ind) ind$fitness))
+      return(mean(fitness))
     }
     
   )

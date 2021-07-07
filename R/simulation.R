@@ -57,6 +57,7 @@ simulation <- R6Class(classname = "simulation",
       self$population <- population$new(N, mutation_rate, self$world)
       self$output <- data.frame(year = 1:years,
                                 black_frequency = rep(NA, years),
+                                avg_fitness = rep(NA, years),
                                 world_dark = rep(NA, years))
       self$years <- years
     },
@@ -75,6 +76,7 @@ simulation <- R6Class(classname = "simulation",
         for (t in 1:self$years) {
           if (!is.null(year_to_browse) && t == year_to_browse) browser()
           self$output$black_frequency[t] <- self$population$fetch_black_proportion()
+          self$output$avg_fitness[t] <- self$population$fetch_avg_fitness()
           self$output$world_dark[t] <- self$world$colour
           self$world$moveforward()
           self$population$generation()
