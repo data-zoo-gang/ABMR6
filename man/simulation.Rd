@@ -14,15 +14,13 @@ as the colour of the world changes.
 \examples{
 #Normal example where moths change colour with world
 set.seed(123)
-simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 10)
-simu$output
+simu <- simulation$new(years = 200, N = 100, mutation_rate = 1e-2, period = 10)
 simu$run()
 simu$plot()
 
 #Example with low mutation rate that leads to fixation
-set.seed(681210)
-simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-4, period = 10)
-simu$output
+set.seed(332041868)
+simu <- simulation$new(years = 200, N = 100, mutation_rate = 1e-4, period = 10)
 simu$run()
 simu$plot()
 }

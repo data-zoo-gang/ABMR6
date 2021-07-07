@@ -95,6 +95,29 @@ my_pop$generation()
 #There will be more black moths in the next generation
 all_colour <- sapply(my_pop$individuals, function(x){x$colour})
 hist(all_colour)
+
+## ------------------------------------------------
+## Method `population$fetch_black_proportion`
+## ------------------------------------------------
+
+set.seed(456L)
+my_world <- world$new()
+my_pop   <- population$new(N = 500, world = my_world)
+
+my_pop$fetch_black_proportion()
+
+
+## ------------------------------------------------
+## Method `population$fetch_avg_fitness`
+## ------------------------------------------------
+
+set.seed(456L)
+my_world <- world$new()
+my_pop   <- population$new(N = 500, world = my_world)
+my_pop$computefitness()
+
+my_pop$fetch_avg_fitness()
+
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
@@ -111,6 +134,8 @@ hist(all_colour)
 \item \href{#method-mutation}{\code{population$mutation()}}
 \item \href{#method-reproduction}{\code{population$reproduction()}}
 \item \href{#method-generation}{\code{population$generation()}}
+\item \href{#method-fetch_black_proportion}{\code{population$fetch_black_proportion()}}
+\item \href{#method-fetch_avg_fitness}{\code{population$fetch_avg_fitness()}}
 \item \href{#method-clone}{\code{population$clone()}}
 }
 }
@@ -276,6 +301,64 @@ my_pop$generation()
 #There will be more black moths in the next generation
 all_colour <- sapply(my_pop$individuals, function(x){x$colour})
 hist(all_colour)
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fetch_black_proportion"></a>}}
+\if{latex}{\out{\hypertarget{method-fetch_black_proportion}{}}}
+\subsection{Method \code{fetch_black_proportion()}}{
+Calculate proportion of black individuals in the population.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{population$fetch_black_proportion()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+Proportion between 0 (all white) and 1 (all black)
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{set.seed(456L)
+my_world <- world$new()
+my_pop   <- population$new(N = 500, world = my_world)
+
+my_pop$fetch_black_proportion()
+
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fetch_avg_fitness"></a>}}
+\if{latex}{\out{\hypertarget{method-fetch_avg_fitness}{}}}
+\subsection{Method \code{fetch_avg_fitness()}}{
+Calculate mean fitness of individuals in the population.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{population$fetch_avg_fitness()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Mean fitness can vary between 0.5, when all moths are mismatched,
+or 1.0, when all moths match the world.
+}
+
+\subsection{Returns}{
+Proportion between 0 (all white) and 1 (all black)
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{set.seed(456L)
+my_world <- world$new()
+my_pop   <- population$new(N = 500, world = my_world)
+my_pop$computefitness()
+
+my_pop$fetch_avg_fitness()
+
 }
 \if{html}{\out{</div>}}
 
