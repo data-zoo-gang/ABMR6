@@ -173,6 +173,25 @@ population <- R6Class(classname = "population",
       self$computefitness()
       self$mutation()
       self$reproduction()
+    },
+    
+    #' @description
+    #' Calculate proportion of black individuals in the population.
+    #' 
+    #' @examples
+    #' set.seed(456L)
+    #' my_world <- world$new()
+    #' my_pop   <- population$new(N = 500, world = my_world)
+    #' 
+    #' my_pop$fetch_black_proportion()
+    #' 
+    #' @return Proportion between 0 (all white) and 1 (all black)
+    fetch_black_proportion = function(){
+      
+      black <- unlist(lapply(self$individuals, function(ind) ind$colour))
+      return(mean(black))
+      
     }
+    
   )
 )

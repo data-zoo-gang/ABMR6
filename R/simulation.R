@@ -13,15 +13,13 @@
 #' @examples
 #' #Normal example where moths change colour with world
 #' set.seed(123)
-#' simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 10)
-#' simu$output
+#' simu <- simulation$new(years = 200, N = 100, mutation_rate = 1e-2, period = 10)
 #' simu$run()
 #' simu$plot()
 #' 
 #' #Example with low mutation rate that leads to fixation
-#' set.seed(681210)
-#' simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-4, period = 10)
-#' simu$output
+#' set.seed(332041868)
+#' simu <- simulation$new(years = 200, N = 100, mutation_rate = 1e-4, period = 10)
 #' simu$run()
 #' simu$plot()
 simulation <- R6Class(classname = "simulation",
@@ -76,8 +74,7 @@ simulation <- R6Class(classname = "simulation",
         pb <- txtProgressBar(min = 1, max = self$years, style = 3)
         for (t in 1:self$years) {
           if (!is.null(year_to_browse) && t == year_to_browse) browser()
-          black <- unlist(lapply(self$population$individuals, function(ind) ind$colour))
-          self$output$black_frequency[t] <- mean(black)
+          self$output$black_frequency[t] <- self$population$fetch_black_proportion()
           self$output$world_dark[t] <- self$world$colour
           self$world$moveforward()
           self$population$generation()
