@@ -1,15 +1,30 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<style type = "text/css">
+h1 {font-size: 24pt;}
+h2 {font-size: 18pt;}
+h3 {font-size: 16pt;}
+</style>
+<center>
 
-# ABMR6
+<img src="img/ABMR6_logo.png" width="300" />
+
+## Illustrating how to build agent-based modelling using [R6](https://github.com/r-lib/R6).
 
 <!-- badges: start -->
+
+![GitHub](https://img.shields.io/github/license/data-zoo-gang/ABMR6)
+![GitHub R package
+version](https://img.shields.io/github/r-package/v/data-zoo-gang/ABMR6)
+![GitHub code size in
+bytes](https://img.shields.io/github/languages/code-size/data-zoo-gang/ABMR6)
+
 <!-- badges: end -->
+</center>
 
-The goal of this package is to illustrate how to use R6 to perform
-individual-based simulations using R6 (<https://github.com/r-lib/R6>).
+------------------------------------------------------------------------
 
-## Installation
+### Installation
 
 To install this package, simply run the following code:
 
@@ -18,7 +33,7 @@ if (!require("remotes")) install.packages("remotes")
 install_github("data-zoo-gang/ABMR6")
 ```
 
-## Usage
+### Usage
 
 After installing this package, you can simply follow the steps below to
 run the simulations. Then explore the R6 classes defined in this package
@@ -27,6 +42,7 @@ to see how things work (`?simulation`, `?world`, `?population`,
 
 ``` r
 library(ABMR6)
+#> Loading required package: R6
 set.seed(123)
 simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
 simu$run()
@@ -35,7 +51,7 @@ simu$run()
 simu$plot()
 ```
 
-![](README_files/figure-gfm/simu-1.png)<!-- -->
+<img src="README_files/figure-gfm/simu-1.png" style="display: block; margin: auto;" />
 
 You can also run the following to explore the content of the objects in
 the middle of a simulation:
@@ -49,13 +65,19 @@ simu$run(year_to_browse = 50)
 Then, to explore the content of the running simulation in details, type:
 
 ``` r
-self ## to display the running instance of the class simulation
-self$world ## to display the running instance of the class world
-self$population ## to display the running instance of the class population
-self$population$individuals ## to display all agents of the simulation
+## to display the running instance of the class simulation
+self
+## to display the running instance of the class world
+self$world
+## to display the running instance of the class population
+self$population
+## to display all agents of the simulation
+self$population$individuals 
+## to return proportion of black moths at the current time step
+self$population$individuals$fetch_black_proportion()
 ```
 
-## Coda
+### Coda
 
 The example treated here is inspired in part by the well known peppered
 moth evolution story

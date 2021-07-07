@@ -11,15 +11,29 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ABMR6
+<style type = "text/css">
+h1 {font-size: 24pt;}
+h2 {font-size: 18pt;}
+h3 {font-size: 16pt;}
+</style>
+
+<center>
+
+![](img/ABMR6_logo.png){width=300px}
+
+## Illustrating how to build agent-based modelling using [R6](https://github.com/r-lib/R6).
 
 <!-- badges: start -->
-![GitHub](https://img.shields.io/github/license/data-zoo-gang/ABMR6)
+
+![GitHub](https://img.shields.io/github/license/data-zoo-gang/ABMR6) ![GitHub R package version](https://img.shields.io/github/r-package/v/data-zoo-gang/ABMR6) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/data-zoo-gang/ABMR6)
+
 <!-- badges: end -->
 
-The goal of this package is to illustrate how to use R6 to perform individual-based simulations using R6 (https://github.com/r-lib/R6).
+</center>
 
-## Installation
+---
+
+### Installation
 
 To install this package, simply run the following code:
 
@@ -28,12 +42,12 @@ if (!require("remotes")) install.packages("remotes")
 install_github("data-zoo-gang/ABMR6")
 ```
 
-## Usage
+### Usage
 
 After installing this package, you can simply follow the steps below to run the simulations.
 Then explore the R6 classes defined in this package to see how things work (`?simulation`, `?world`, `?population`, `?moth`).
 
-```{r simu}
+```{r simu, fig.align='center'}
 library(ABMR6)
 set.seed(123)
 simu <- simulation$new(years = 200, N = 500, mutation_rate = 1e-2, period = 50)
@@ -63,6 +77,6 @@ self$population$individuals
 self$population$individuals$fetch_black_proportion()
 ```
 
-## Coda
+### Coda
 
 The example treated here is inspired in part by the well known peppered moth evolution story (https://en.wikipedia.org/wiki/Peppered_moth_evolution). It considers that the environment is either black or white and that the colour switches regularly. The grey line on the plot shows the colour of the environment (top means black and bottom means white). The blue line shows how the allele frequency for the gene coding the black colour evolves through time. Evolution happens because of both drift and selection. The selection happens because I considered that moths (or butterflies in the files) have a lower fitness if they are not in an environment matching their colour (because, say, the predators spot them better).
