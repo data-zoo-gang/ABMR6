@@ -50,10 +50,16 @@ simu$run(year_to_browse = 50)
 Then, to explore the content of the running simulation in details, type:
 
 ```{r browsing step by step, eval = FALSE}
-self ## to display the running instance of the class simulation
-self$world ## to display the running instance of the class world
-self$population ## to display the running instance of the class population
-self$population$individuals ## to display all agents of the simulation
+## to display the running instance of the class simulation
+self
+## to display the running instance of the class world
+self$world
+## to display the running instance of the class population
+self$population
+## to display all agents of the simulation
+self$population$individuals 
+## to return proportion of black moths at the current time step
+self$population$individuals$fetch_black_proportion()
 ```
 
 ## Coda
