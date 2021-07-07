@@ -11,12 +11,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-<style type = "text/css">
-h1 {font-size: 24pt;}
-h2 {font-size: 18pt;}
-h3 {font-size: 16pt;}
-</style>
-
 <center>
 
 ![](img/ABMR6_logo.png){width=300px}
